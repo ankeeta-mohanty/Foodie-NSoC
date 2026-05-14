@@ -12,7 +12,8 @@
     "lightMode": "Light Mode",
     "signIn": "Sign in",
     "cart": "Cart",
-    "favorites": "Favorites"
+    "favorites": "Favorites",
+    "orderHistory": "Order History"
   },
   "hero": {
     "title": "Enjoy Your Delicious",
