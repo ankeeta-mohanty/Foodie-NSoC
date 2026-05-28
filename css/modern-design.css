@@ -483,7 +483,7 @@ footer {
     p { font-size: 1rem !important; }
     
     .desktop-action { display: none !important; } /* Hide desktop actions on mobile */
-    .hamberger { display: block !important; }
+    .hamberger { display: flex !important; }
     
     .hero-section { text-align: center !important; }
     .hero-section .content { padding: 0 !important; }

@@ -280,7 +280,7 @@
             display: none !important;
         }
         .desktop-action .hamberger {
-            display: block !important;
+            display: flex !important;
         }
     }
 
@@ -520,6 +520,10 @@
         font-size: 1.5rem;
         display: none;
         cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
     }
 
     .desktop-action .hamberger i {
@@ -1163,7 +1167,7 @@
         }
 
         .desktop-action .hamberger {
-            display: block;
+            display: flex;
         }
 
         .desktop-action {
