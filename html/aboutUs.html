@@ -416,63 +416,6 @@
     </a>
 
     <script>
-        // Theme Toggle with smooth icon transition
-        (function () {
-            const themeToggles = document.querySelectorAll('.theme-toggle');
-            const html = document.documentElement;
-
-            // Initial theme setting is now handled by the inline script in the head.
-            // This script only updates the icon and sets up event listeners.
-
-            // Update icon based on theme (guarded)
-            function updateThemeIcon() {
-                themeToggles.forEach(toggle => {
-                    if (!toggle) return;
-                    const icon = toggle.querySelector('i');
-                    if (!icon) return;
-                    if (html.getAttribute('data-theme') === 'dark') {
-                        icon.style.transform = 'rotate(360deg) scale(0)';
-                        setTimeout(() => {
-                            icon.className = 'fa-solid fa-sun';
-                            icon.style.transform = 'rotate(0deg) scale(1)';
-                        }, 250);
-                    } else {
-                        icon.style.transform = 'rotate(-360deg) scale(0)';
-                        setTimeout(() => {
-                            icon.className = 'fa-solid fa-moon';
-                            icon.style.transform = 'rotate(0deg) scale(1)';
-                        }, 250);
-                    }
-                });
-            }
-
-            updateThemeIcon(); // Call once on load to set initial icon
-
-            themeToggles.forEach(toggle => {
-                if (toggle) {
-                    toggle.addEventListener('click', () => {
-                        const currentTheme = html.getAttribute('data-theme');
-                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                        html.setAttribute('data-theme', newTheme);
-                        localStorage.setItem('theme', newTheme);
-                        updateThemeIcon();
-                    });
-                }
-            });
-        })();
-
-        // Mobile Menu Toggle (guarded)
-        (function () {
-            const hamburger = document.querySelector('.hamberger');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            if (hamburger && mobileMenu) {
-                hamburger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    mobileMenu.classList.toggle('mobile-menu-active');
-                });
-            }
-        })();
-
         // Back to Top (guarded)
         (function () {
             const backToTop = document.querySelector('.back-to-top');
