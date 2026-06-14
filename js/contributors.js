@@ -140,9 +140,9 @@ async function fetchAllPulls() {
 
     // Import error handling utilities
     const {
-        retry,
-        NetworkError,
-        errorLogger
+        retry = async (fn) => fn(),
+        NetworkError = Error,
+        errorLogger = { log: console.error }
     } = window.FoodieErrorHandler || {};
 
     // Fetching top 300 recent PRs. Increase page limit if needed, but be wary of API limits.
