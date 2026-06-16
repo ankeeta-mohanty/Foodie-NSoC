@@ -19,6 +19,7 @@
 
   <!-- CSS links -->
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
   <link rel="stylesheet" href="../css/order-history.css" />
   <link rel="stylesheet" href="../css/cursor.css" />
 
@@ -33,84 +34,125 @@
 <body>
 
   <header>
-    <nav class="navbar flex between wrapper">
-        <a href="./index.html" class="logo">Foodie.</a>
+  <nav class="navbar" aria-label="Main navigation">
 
-        <!-- DESKTOP MENU -->
-        <ul class="navList flex gap-1 between">
-            <li><a href="./index.html#home" data-i18n="nav.home">Home</a></li>
-            <li><a href="./menu.html" data-i18n="nav.menu">Menu</a></li>
-            <li><a href="./my-favorites.html" data-i18n="nav.favorites"><i class="fa-solid fa-star"></i> Favorites</a></li>
-            <li><a href="./order-history.html" data-i18n="nav.orderHistory"><i class="fa-solid fa-clock-rotate-left"></i> Order History</a></li>
-            <li><a href="./aboutUs.html" data-i18n="nav.about">About Us</a></li>
-            <li><a href="./contactUs.html" data-i18n="nav.contact">Contact Us</a></li>
-            <li><a href="./nearbyres.html" data-i18n="nav.nearby">Nearby</a></li>
-        </ul>
+    <!-- Logo -->
+    <a href="./index.html" class="logo" aria-label="Foodie home">Foodie.</a>
 
-        <div class="desktop-action flex gap-1">
-            <!-- Language Selector -->
-            <div class="custom-select" id="language-custom-select">
-                <div class="selected" tabindex="0" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="language-custom-select">
-                    English
-                </div>
-                <ul class="options" role="listbox" tabindex="-1">
-                    <li data-value="en" role="option" aria-selected="true">English</li>
-                    <li data-value="hi" role="option">हिंदी</li>
-                    <li data-value="kn" role="option">ಕನ್ನಡ</li>
-                    <li data-value="mr" role="option">मराठी</li>
-                    <li data-value="bn" role="option">বাংলা</li>
-                </ul>
-            </div>
+    <!-- Desktop nav links -->
+    <ul class="navList" role="list">
+      <li><a href="./index.html#home"      data-i18n="nav.home">Home</a></li>
+      <li><a href="./menu.html"            data-i18n="nav.menu">Menu</a></li>
+      <li><a href="./my-favorites.html"    data-i18n="nav.favorites">
+            <i class="fa-solid fa-star" aria-hidden="true"></i> Favorites
+          </a></li>
+      <li><a href="./order-history.html"   data-i18n="nav.orderHistory">
+            <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Orders
+          </a></li>
+      <li><a href="./aboutUs.html"         data-i18n="nav.about">About</a></li>
+      <li><a href="./contactUs.html"       data-i18n="nav.contact">Contact</a></li>
+      <li><a href="./nearbyres.html"       data-i18n="nav.nearby">Nearby</a></li>
+    </ul>
 
-            <!-- Search Input -->
-            <form class="navbar-search" action="#" method="get">
-                <input type="text" name="search" id="navbar-search" placeholder="Search..." aria-label="Search menu items">
-                <button type="submit" id="navbar-search-btn" aria-label="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
+    <!-- Desktop actions -->
+    <div class="desktop-action" role="group" aria-label="Site actions">
 
-            <!-- Theme toggle -->
-            <button class="desktop-action theme-toggle" aria-label="Toggle dark mode">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+      <!-- Search -->
+      <form class="navbar-search" action="#" method="get" role="search">
+        <input
+          type="text"
+          name="search"
+          id="navbar-search"
+          placeholder="Search food or restaurants…"
+          aria-label="Search menu items"
+          autocomplete="off"
+        />
+        <button type="submit" id="navbar-search-btn" aria-label="Submit search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+      </form>
 
-            <!-- Cart Icon -->
-            <a href="./checkout.html" class="cart-icon">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span class="cart-value">0</span>
-            </a>
-
-            <!-- Sign-in button -->
-            <a href="./login.html" class="btn">
-                <i class="fa-solid fa-user"></i>&nbsp;Sign in
-            </a>
-
-            <!-- Hamburger -->
-            <a href="#" class="hamberger"><i class="fa-solid fa-bars"></i></a>
+      <!-- Language selector -->
+      <div class="custom-select" id="language-custom-select" aria-label="Select language">
+        <div class="selected" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+          English
         </div>
-
-        <!-- MOBILE MENU -->
-        <ul class="mobile-menu">
-            <li><a href="./index.html#home" data-i18n="nav.home">Home</a></li>
-            <li><a href="./menu.html" data-i18n="nav.menu">Menu</a></li>
-            <li><a href="./my-favorites.html" data-i18n="nav.favorites"><i class="fa-solid fa-star"></i> Favorites</a></li>
-            <li><a href="./order-history.html" data-i18n="nav.orderHistory"><i class="fa-solid fa-clock-rotate-left"></i> Order History</a></li>
-            <li><a href="./aboutUs.html" data-i18n="nav.about">About Us</a></li>
-            <li><a href="./contactUs.html" data-i18n="nav.contact">Contact Us</a></li>
-            <li><a href="./nearbyres.html" data-i18n="nav.nearby">Nearby</a></li>
-            <li>
-                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fa-solid fa-moon"></i><span>Dark Mode</span>
-                </button>
-            </li>
-            <li>
-                <a href="./login.html" class="btn">
-                    <i class="fa-solid fa-user"></i>&nbsp;Sign in
-                </a>
-            </li>
+        <ul class="options" role="listbox">
+          <li data-value="en" role="option" aria-selected="true">English</li>
+          <li data-value="hi" role="option">हिंदी</li>
+          <li data-value="kn" role="option">ಕನ್ನಡ</li>
+          <li data-value="mr" role="option">मराठी</li>
+          <li data-value="bn" role="option">বাংলা</li>
         </ul>
-    </nav></header>
+      </div>
+
+      <!-- Theme toggle -->
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <!-- Notifications -->
+      <a href="#" class="notification-icon" aria-label="Notifications (3 unread)">
+        <i class="fa-solid fa-bell" aria-hidden="true"></i>
+        <span class="notification-badge" aria-hidden="true">3</span>
+      </a>
+
+      <!-- Cart -->
+      <a href="./checkout.html" class="cart-icon" aria-label="Cart">
+        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        <span class="cart-value" aria-label="0 items">0</span>
+      </a>
+
+      <!-- Sign in -->
+      <a href="./login.html" class="btn">
+        <i class="fa-solid fa-user" aria-hidden="true"></i>
+        Sign in
+      </a>
+
+      <!-- Hamburger (hidden on desktop) -->
+      <a href="#" class="hamberger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <!-- Mobile menu -->
+    <ul class="mobile-menu" id="mobile-nav" role="list" aria-label="Mobile navigation">
+      <li><a href="./index.html#home"    data-i18n="nav.home">
+            <i class="fa-solid fa-house"              aria-hidden="true"></i> Home
+          </a></li>
+      <li><a href="./menu.html"          data-i18n="nav.menu">
+            <i class="fa-solid fa-utensils"           aria-hidden="true"></i> Menu
+          </a></li>
+      <li><a href="./my-favorites.html"  data-i18n="nav.favorites">
+            <i class="fa-solid fa-star"               aria-hidden="true"></i> Favorites
+          </a></li>
+      <li><a href="./order-history.html" data-i18n="nav.orderHistory">
+            <i class="fa-solid fa-clock-rotate-left"  aria-hidden="true"></i> Orders
+          </a></li>
+      <li><a href="./nearbyres.html"     data-i18n="nav.nearby">
+            <i class="fa-solid fa-location-dot"       aria-hidden="true"></i> Nearby
+          </a></li>
+      <li><a href="./aboutUs.html"       data-i18n="nav.about">
+            <i class="fa-solid fa-circle-info"        aria-hidden="true"></i> About Us
+          </a></li>
+      <li><a href="./contactUs.html"     data-i18n="nav.contact">
+            <i class="fa-solid fa-envelope"           aria-hidden="true"></i> Contact
+          </a></li>
+      <li>
+        <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          <span>Dark Mode</span>
+        </button>
+      </li>
+      <li>
+        <a href="./login.html" class="btn">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>&nbsp;Sign in
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+</header>
 
   <main class="order-history-container">
     <h5 class="text-center">Order History</h5>
