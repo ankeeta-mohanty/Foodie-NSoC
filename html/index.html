@@ -108,7 +108,7 @@
             </a>
 
             <!-- Hamburger -->
-            <a href="#" class="hamberger"><i class="fa-solid fa-bars"></i></a>
+            <a href="#" class="hamberger" aria-label="Open menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></a>
         </div>
 
         <!-- MOBILE MENU -->
@@ -318,8 +318,12 @@
                             </div>
                         </div>
                         <div class="flex between mt-4">
-                            <a href="#" class="arrow"><i class="fa-solid fa-arrow-left"></i></a>
-                            <a href="#" class="arrow"><i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#" class="arrow" aria-label="Previous review">
+                                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="arrow" aria-label="Next review">
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -433,6 +437,7 @@
                         drop you email below to get daily update about us.</p>
 
                     <form id="newsletterForm" class="input-container flex" data-aos="fade-up" data-aos-delay="200">
+                        <label for="email" class="sr-only">Email address</label>
                         <input type="email" id="email" placeholder="Enter your email"
                             data-i18n-placeholder="newsletter.placeholder" />
 
