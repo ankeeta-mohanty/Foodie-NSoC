@@ -76,17 +76,27 @@ function toggleFav(id, card) {
   if (currentFilters.favOnly) renderCards(getFilteredProducts());
 }
 
+function showAddToCartToast(message) {
+  if (typeof showToast === 'function') { showToast(message); return; }
+  const container = document.querySelector('.toast-container') || document.body;
+  const toast = document.createElement('div');
+  toast.className = 'toast show';
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => toast.remove(), 2500);
+}
+
 window.addToCart = function(id) {
   const product = allProducts.find(p => p.id === id);
   if (!product) return;
-  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let cart = JSON.parse(localStorage.getItem('foodie:cart') || '[]');
   const existing = cart.find(i => i.id === id);
-  if (existing) existing.qty += 1;
-  else cart.push({ ...product, qty: 1 });
-  localStorage.setItem('cart', JSON.stringify(cart));
+  if (existing) existing.quantity += 1;
+  else cart.push({ ...product, quantity: 1 });
+  localStorage.setItem('foodie:cart', JSON.stringify(cart));
   const cartValue = document.querySelector('.cart-value');
-  if (cartValue) cartValue.textContent = cart.reduce((a, i) => a + i.qty, 0);
-  alert(`${product.name} added to cart!`);
+  if (cartValue) cartValue.textContent = cart.reduce((a, i) => a + i.quantity, 0);
+  showAddToCartToast(`${product.name} added to cart!`);
 };
 
 function bindDropdown(selectorId, filterKey) {
